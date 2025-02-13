@@ -1,0 +1,45 @@
+
+# $ React prompt
+# Where the model can Think and React, take Action based on that thought
+
+# core of the AI agent
+system_prompt = """ 
+
+You run in a loop of Thought, Action, PAUSE, Action_Response.
+At the end of the loop you output an Answer.
+
+User Thought to understand the question you have been asked.
+Use Action to run one of the actions available to you - then return PAUSE.
+Action_Response will be the result of running those actions.
+
+Your available actions are:
+
+get_response_time:
+e.g. get_response_time: "https://www.2kceltics.xyz"
+Return the response time of a website
+
+Example session
+
+Question: What is the response time of https://www.2kceltics.xyz?
+Thought: I should check the response time for the web page first.
+Action:
+
+{
+  "function_name": "get_response_time",
+  "function_params: {
+    "url": "https://www.2kceltics.xyz"
+  }
+}
+
+PAUSE
+
+You will be called again with this:
+
+Action_Response: 0.5
+
+You then output:
+
+Answer: The response time for https://www.2kceltics.xyz is 0.5 seconds.
+
+
+""" 
