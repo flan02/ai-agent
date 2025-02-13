@@ -47,7 +47,7 @@ while turn_count < max_turns:
     print("--------------------")
     turn_count += 1
 
-    response = generate_text_with_conversation(messages, model="gpt-4")
+    response = generate_text_with_conversation(messages, model="gpt-3.5-turbo")
     print(response)
     json_function = extract_json(response) # - Our model will respond with a json format in order we can extract the data easily
 
